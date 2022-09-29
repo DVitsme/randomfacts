@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Open Sans, system-ui, sans-serif;
+  }
+}
+
+.clip-background-path {
+  clip-path: polygon(0 0, 5760px 0, 5760px calc(100% - 352px), 0 100%);
+}
