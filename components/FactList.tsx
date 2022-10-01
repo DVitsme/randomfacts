@@ -2,11 +2,9 @@ import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import data from '../data/data.json'
 import { getDate } from '../utils/getDate';
 
-const FactList: NextPage = () => {
-  type Fact = {
+type Fact = {
   id: string
   text: string  
   source: string
@@ -15,7 +13,7 @@ const FactList: NextPage = () => {
   permalink: string
 }
 
-  const facts: Fact[] = data;
+const FactList: NextPage = ({facts}) => {
 
   return (
     <div className="mx-auto mt-10 max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-20">
@@ -59,7 +57,6 @@ const FactList: NextPage = () => {
     </div>
   );
 };
-
 
 
 export default FactList;

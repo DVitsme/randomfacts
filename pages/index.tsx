@@ -1,15 +1,40 @@
 import type { NextPage } from 'next';
-import FactList from '../components/FactList';
+import { GetStaticProps } from 'next'
 
+import FactList from '../components/FactList';
 import Hero from '../components/Hero';
 
-const Home: NextPage = () => {
+import data from '../data/data.json'
+
+  type Fact = {
+  id: string
+  text: string  
+  source: string
+  source_url: string
+  language: string
+  permalink: string
+}
+
+
+const Home: NextPage = ({facts}) => {
+
   return (
     <div>
       <Hero />
-      <FactList />
+      <FactList facts={facts} />
     </div>
   );
 };
+
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const facts: Fact[] = data;
+
+  return {
+    props: {
+      facts
+    }
+  }
+}
 
 export default Home;
