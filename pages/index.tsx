@@ -15,6 +15,7 @@ type Fact = {
   permalink: string;
 };
 
+// update facts
 const Home: NextPage = ({
   facts
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
